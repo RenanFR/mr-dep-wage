@@ -32,7 +32,7 @@ public class Driver {
 		job.setMapOutputValueClass(DoubleWritable.class);
 		
 		FileInputFormat.addInputPath(job, input);
-		MultipleOutputs.addNamedOutput(job, "human resources", TextOutputFormat.class, Text.class, DoubleWritable.class);
+		MultipleOutputs.addNamedOutput(job, "hr", TextOutputFormat.class, Text.class, DoubleWritable.class);
 		MultipleOutputs.addNamedOutput(job, "accounting", TextOutputFormat.class, Text.class, DoubleWritable.class);
 		FileOutputFormat.setOutputPath(job, output);
 		

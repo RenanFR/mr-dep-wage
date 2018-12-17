@@ -23,14 +23,14 @@ public class DepartmentReducer extends Reducer<Text, DoubleWritable, Text, Doubl
 	protected void reduce(Text departmentCode, Iterable<DoubleWritable> wages,
 			Reducer<Text, DoubleWritable, Text, DoubleWritable>.Context context) throws IOException, InterruptedException {
 		for (DoubleWritable w : wages) {
-			if (departmentCode.toString().equalsIgnoreCase("human resources")) {
+			if (departmentCode.toString().equalsIgnoreCase("HR")) {
 				wageHR += w.get();
 			} else {
 				wageAcc += w.get();
 			}
 		}
-		if (departmentCode.toString().equalsIgnoreCase("human resources")) {
-			output.write("human resources", departmentCode, wageHR);
+		if (departmentCode.toString().equalsIgnoreCase("HR")) {
+			output.write("hr", departmentCode, wageHR);
 		} else {
 			output.write("accounting", departmentCode, wageAcc);
 		}
